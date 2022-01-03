@@ -1,0 +1,131 @@
+/*membuat database*/
+CREATE DATABASE kampusBIU;
+
+/*menggunakan database kampusBIU*/
+use kampusBIU
+
+/*membuat table mahasiswa*/
+CREATE TABLE mahasiswa(
+	nim varchar(15) primary key not null,
+	nama_mhs varchar(25) not null,
+	tpt_lhr_mhs varchar(25),
+	tgl_lhr_mhs date,
+	j_kelamin varchar(15),
+	almt_mhs varchar(30),
+	kota_mhs varchar(20),
+	agama_mhs varchar(10),
+	telpon_mhs varchar(13),
+	kode_jur varchar(4)
+);
+
+/*membuat table matakuliah*/
+CREATE TABLE matakuliah(
+	kdmk varchar(5) primary key not null,
+	nama_mk varchar(20),
+	sks int,
+	semester int
+);
+
+/*membuat table jurusan*/
+CREATE TABLE jurusan(
+	kode_jur char(4) primary key not null,
+	nama_jur varchar(20),
+	jenjang varchar(4),
+	nama_kajur varchar(20)
+);
+
+/*membuat table nilai*/
+CREATE TABLE nilai(
+	nim varchar(15) primary key not null,
+	kdmk varchar(5)  not null,
+	smt int not null,
+	nid varchar(15),
+	nilai_absen int,
+	nilai_tugas int,
+	nilai_uts int,
+	nilai_uas int
+);
+
+/*membuat table dosen*/
+CREATE TABLE dosen(
+	nid varchar(15) primary key not null,
+	nama_d varchar(20),
+	pendidikan_d varchar(4),
+	agama_d varchar(10),
+	kota_d varchar(15),
+	telepon_d varchar(13)
+);
+
+/*INSERT DATA mahasiswa*/
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310029', 'SEKAR PUSPIA ARUM', 'PURWOREJO', '08-11-2001', 'PEREMPUAN', 'KOMPLEK KOSTRAD', 'JAKARTA', 'ISLAM', '087878802352', 'SMBD')
+
+ 
+/*INSERT data matakuliah*/
+INSERT INTO  matakuliah(kdmk, nama_mk, sks, semester)
+VALUES('SMBD1', 'Sistem Manajemen BD', 3, 1)
+
+/*INSERT data jurusan*/
+INSERT INTO jurusan(kode_jur, nama_jur, jenjang, nama_kajur)
+VALUES('SMBD', 'BD Sistem Manajemen', 'S1', 'RULLY')
+
+/*INSERT data nilai*/
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310029', 'SMBD1', 1, '009008007', 80, 90, 89, 100)
+
+
+
+/*INSERT data dosen*/
+INSERT INTO dosen(nid, nama_d, pendidikan_d, agama_d, kota_d, telepon_d)
+VALUES('009008007', 'RULLY', 'S2', 'ISLAM', 'BEKASI', '021378908890')
+
+/*SHOWING DATA*/
+SELECT * FROM mahasiswa
+SELECT * FROM matakuliah
+SELECT * FROM jurusan
+SELECT * FROM nilai
+SELECT * FROM dosen
+
+/*buatlah Buat 5 soal dan jawaban query dari operator aritmatika*/
+/*1. kalikanlah nilai absen dengan 50%!*/
+/*2. kalikanlah nilai tugas dengan 30%!*/
+/*3. kalikanlah nilai uts dengan 10%!*/
+/*4. kalikanlah nilai uas dengan 10%!*/
+/*5. jumlahkanlah nilai absen, nilai tugas, uts dan uas!*/
+
+/*jawaban 1*/
+SELECT nid,(nilai_absen*0.5) from nilai;
+
+/*jawaban 2*/
+SELECT nid,(nilai_tugas*0.3) from nilai;
+
+/*jawaban 3*/
+SELECT nid,(nilai_uts*0.1) from nilai;
+
+/*jawaban 4*/
+SELECT nid,(nilai_uas*0.1) from nilai;
+
+/*jawaban 5*/
+SELECT nid,(nilai_absen*0.5)+(nilai_tugas*0.3)+(nilai_uts*0.1)+(nilai_uas*0.1) from nilai;
+
+/*Buat 5 soal dan jawaban query dari operator comparison*/
+/*1. carilah nilai absen mahasiswa yang lebih dari 79!*/
+/*2. carilah nilai tugas mahasiswa yang kurang dari 60!*/
+/*3. carilah nilai uts mahasiswa yang lebih dari 80!*/
+/*4. carilah nilai uas mahasiswa yang kurang dari 78!*/
+/*5. carilah nilai absen mahasiswa yang kurang dari 70!*/
+
+/*jawaban 1*/
+SELECT nid, nilai_absen FROM nilai WHERE nilai_absen>79;
+
+/*jawaban 2*/
+SELECT nid, nilai_tugas FROM nilai WHERE nilai_tugas<60;
+
+/*jawaban 3*/
+SELECT nid, nilai_uts FROM nilai WHERE nilai_uts>80;
+
+/*jawaban 4*/
+SELECT nid, nilai_uas FROM nilai WHERE nilai_uas<78;
+
+/*jawaban 5*/
+SELECT nid, nilai_absen FROM nilai WHERE nilai_absen<70;
