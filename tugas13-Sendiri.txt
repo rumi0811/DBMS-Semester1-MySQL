@@ -1,0 +1,595 @@
+use kampus13
+--LANJUTAN DATABASE PERTEMUAN 12 SOAL BERADA DI BAWAH--
+--SEKAR PUSPITA ARUM 2021310029--
+CREATE TABLE mahasiswa(
+	nim varchar(15) primary key not null,
+	nama_mhs varchar(35) not null,
+	tpt_lhr_mhs varchar(25),
+	tgl_lhr_mhs date,
+	j_kelamin varchar(15),
+	almt_mhs varchar(30),
+	kota_mhs varchar(20),
+	agama_mhs varchar(10),
+	telpon_mhs varchar(15),
+	kode_jur varchar(4)
+);
+
+/*membuat table matakuliah*/
+CREATE TABLE matakuliah(
+	kdmk varchar(5) primary key not null,
+	nama_mk varchar(20),
+	sks int,
+	semester int,
+	nim varchar (15),
+	nama_mhs varchar (35) not null
+);
+
+/*membuat table jurusan*/
+CREATE TABLE jurusan(
+	kode_jur char(4) primary key not null,
+	nama_jur varchar(20),
+	jenjang varchar(4),
+	nama_kajur varchar(20)
+);
+
+/*membuat table nilai*/
+CREATE TABLE nilai(
+	nim varchar(15) primary key not null,
+	kdmk varchar(5)  not null,
+	smt int not null,
+	nid varchar(15),
+	nilai_absen int,
+	nilai_tugas int,
+	nilai_uts int,
+	nilai_uas int,
+	nama_mhs varchar (35) not null
+);
+
+/*membuat table dosen*/
+CREATE TABLE dosen(
+	nid varchar(15) primary key not null,
+	nama_d varchar(20),
+	pendidikan_d varchar(4),
+	agama_d varchar(10),
+	kota_d varchar(15), --row50
+	telepon_d varchar(13)
+);
+
+/*INSERT DATA mahasiswa*/
+--1. SEKAR PUSPITA ARUM
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310029', 'SEKAR PUSPIA ARUM', 'PURWOREJO', '08-11-2001', 'PEREMPUAN', 'KOMPLEK KOSTRAD', 'JAKARTA', 'ISLAM', '087878802352', 'SMBD')
+
+--2. AHMAD KAYIS MILKI KAFA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310030', 'AHMAD KAYIS MILKI KAFA', 'JAWA', '09-11-2001', 'LAKILAKI', 'KOMPLEK POLRI', 'CIANGSANA', 'ISLAM', '089671716521', 'SMBD')
+
+--3. AMELIA SUKMA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310031', 'AMELIA SUKMA', 'KLATEN', '10-11-2001', 'PEREMPUAN', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '0897678908789', 'SMBD')
+
+--4. ANDREANSYAH
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310032', 'ANDREANSYAH', 'BALI', '01-10-2001', 'LAKI-LAKI', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '0898976981234', 'SMBD')
+ 
+--5. ARUM SAGITA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310033', 'ARUM SAGITA', 'BANTEN', '02-10-2001', 'PEREMPUAN', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'KRISTEN', '08787658945678', 'SMBD')
+
+--6. BENTAR ARDHIE NUGROHO
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310034', 'BENTAR ARDHIE NUGROHO', 'BALI', '03-10-2001', 'LAKI-LAKI', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '08787677890675 ', 'SMBD')
+
+--7. FEBRYAN MIFTAHUL HUDA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310035', 'FEBRYAN MIFTAHUL HUDA', 'SOLO', '04-10-2001', 'LAKI-LAKI', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '08989090989090', 'SMBD')
+
+--8. FUAD FANDI FAUZAN
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310036', 'FUAD FANDI FAUZAN', 'JOGJA', '05-10-2001', 'LAKI-LAKI', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '08767890879', 'AKTN')
+
+--9. HANDAYANI 
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310037', 'HANDAYANI', 'BALI', '07-10-2001', 'PEREMPUAN', 'KOMPLEK KOSTRAD', 'JAKARTA', 'ISLAM', '0865678909876', 'AKTN')
+
+--10. KHOIRUL MUSTAQIM
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310038', 'KHOIRUL MUSTAQIM', 'JAWA', '06-10-2001', 'LAKI-LAKI', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '089611466718', 'AKTN')
+
+--11. MARTIN RAYMON
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310039', 'MARTIN RAYMON', 'BALI', '08-10-2001', 'LAKI-LAKI', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '0876789067509', 'AKTN')
+
+--12. MUHAMMAD ADI PRASETYA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+--row 100
+VALUES('2021310040', 'MUHAMMAD ADI PRASETYA' ,'BOGOR', '09-10-2001', 'LAKI-LAKI', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '089767800', 'AKTN')
+
+--13. MUHAMMAD YUSUF
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310041', 'MUHAMMAD YUSUF', 'BANYUWANGI', '10-10-2001', 'LAKI-LAKI', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '08767890643', 'AKTN')
+
+--14. MUHAMMAD RAFLI RAMDHONI
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310042', 'MUHAMMAD RAFLI RAMDHONI', 'BANTEN', '01-01-2001', 'LAKI-LAKI', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '0897678906789', 'AKTN')
+
+--15. MUHAMMAD RENDY AL SUNGKAR
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310043', 'MUHAMMAD RENDY AL SUNGKAR', 'RIAU', '02-02-2001', 'LAKI-LAKI', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '0876789078678', 'TKPT')
+
+--16. NESAN ARMANSYAH
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310044', 'NESAN ARMANSYAH', 'KALIMANTAN', '03-02-2001', 'LAKI-LAKI', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '0878905678390', 'TKPT')
+
+--17. NOVIANA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310045', 'NOVIANA', 'JOGJA', '04-02-2001', 'PEREMPUAN', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '021456789023', 'TKPT')
+
+--18. PIRMANSYAH
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310046', 'PIRMANSYAH', 'JAWA', '05-02-2001', 'LAKI-LAKI', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '087678902345', 'TKPT')
+
+--19. RAHMAN NUR TAUBAH
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310047', 'RAHMAN NUR TAUBAH', 'BALI', '06-02-2001', 'LAKI-LAKI', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '098789012021', 'TKPT')
+
+--20. RIO ARDIANSYAH
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310048', 'RIO ARDIANSYAH', 'SOLO', '07-02-2001', 'LAKI-LAKI', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '089678945671', 'TKPT')
+
+--21. ROSATIA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310049', 'ROSATIA', 'JAWA', '08-02-2001', 'PEREMPUAN', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '087656789790', 'TKPT')
+
+--22. SHELLA PUSPITA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310050', 'SHELLA PUSPITA', 'BALI', '09-02-2001', 'PEREMPUAN', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '08585467895', 'TKPK')
+
+--23. SISKA RAHMAWATI
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310051', 'SISKA RAHMAWATI', 'JAWA', '10-02-2001', 'PEREMPUAN', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '087656789790', 'TKPK')
+
+--24. WULAN
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310052', 'WULAN', 'BALI', '20000806', '01-02-2001', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '0878908767', 'TKPK')
+--row 150
+--25. VENI TIYAS SARI
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310053', 'VENI TIYAS SARI', 'SOLO', '02-02-2001', 'PEREMPUAN', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '0987890765456', 'TKPK')
+
+--26. WILDAN FEBRIANA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310054', 'WILDAN FEBRIANA', 'BALI', '02-02-2001', 'LAKI-LAKI', 'KOMPLEK AU', 'CIBARUSAH', 'ISLAM', '087678906545677', 'TKPK')
+
+--27. YAZID HADIYAN KAMALUDIN
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310055', 'YAZID HADIYAN KAMALUDIN', 'JAWA', '02-03-2001', 'LAKI-LAKI', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '08767890987', 'TKPK')
+
+--28. ZULIAN ZANDI NUGRAHA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310048', 'ZULIAN ZANDI NUGRAHA', 'SOLO', '05-05-2001', 'LAKI-LAKI', 'KOMPLEK PERTANIAN', 'CIBARUSAH', 'ISLAM', '0865678901234', 'TKPK')
+
+--29. MUHAMMAD AJAT SAPUTRA
+INSERT INTO mahasiswa(nim, nama_mhs, tpt_lhr_mhs, tgl_lhr_mhs, j_kelamin, almt_mhs, kota_mhs, agama_mhs, telpon_mhs, kode_jur)
+VALUES('2021310048', 'MUHAMMAD AJAT SAPUTRA', 'BALI', '09-09-2001', 'LAKI-LAKI', 'KOMPLEK AD', 'CIBARUSAH', 'ISLAM', '0876789909235', 'TKPK')
+
+
+
+
+ 
+/*INSERT data matakuliah*/
+--1. SEKAR PUSPITA ARUM
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310029', 'SEKAR PUSPITA ARUM', 'SMBD1','Sistem Manajemen BD', 3, 1)
+
+--2. AHMAD KAYIS MILKI KAFA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310030', 'AHMAD KAYIS MILKI KAFA', 'SMBD1','Sistem Manajemen BD', 2, 1)
+
+--3. AMELIA SUKMA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310031', 'AMELIA SUKMA', 'SMBD1', 'Sistem Manajemen BD', 4, 1)
+
+--4. ARUM SAGITA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310032', 'ARUM SAGITA', 'SMBD1', 'Sistem Manajemen BD', 7, 1)
+
+--5. ANDREANSYAH
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310033', 'ANDREANSYAH', 'SMBD1', 'Sistem Manajemen BD', 5, 1)
+
+--6. BENTAR ARDHIE NUGROHO
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310034', 'BENTAR ARDHIE NUGROHO', 'SMBD1', 'Sistem Manajemen BD', 3, 1)
+
+--7. FEBRYAN MIFTAHUL HUDA --row 200
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310035', 'FEBRYAN MIFTAHUL HUDA', 'SMBD1', 'Sistem Manajemen BD', 4, 1)
+
+--8. FUAD FANDI FAUZAN
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310036', 'FUAD FANDI FAUZAN', 'AKTN1', 'Akuntansi', 5, 1)
+
+--9. HANDAYANI
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310037', 'HANDAYANI', 'AKTN1', 'Akuntansi', 4, 1)
+
+--10. KHOIRUL MUSTAQIM
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310038', 'KHOIRUL MUSTAQIM', 'AKTN1', 'Akuntansi', 5, 1)
+
+--11. MARTIN RAYMON
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310039', 'MARTIN RAYMON', 'AKTN1', 'Akuntansi', 4, 1)
+
+--12. MUHAMMAD ADI PRASETYA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310040', 'MUHAMMAD ADI PRASETYA', 'AKTN1', 'Akuntansi', 5, 1)
+
+--13. MUHAMMAD YUSUF
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310041', 'MUHAMMAD YUSUF', 'AKTN1', 'Akuntansi', 4, 1)
+
+--14. MUHAMMAD RAFLI RAMDHONI
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310042', 'MUHAMMAD RAFLI RAMDHONI', 'AKTN1', 'Akuntansi', 3, 1)
+
+--15. MUHAMMAD RENDY AL SUNGKAR
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310043', 'MUHAMMAD RENDY AL SUNGKAR', 'TKPT1', 'Teknik Pertambangan', 3, 1)
+
+--16. NESAN ARMANSYAH
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310044', 'NESAN ARMANSYAH', 'TKPT1', 'Teknik Pertambangan', 4, 1)
+
+--17. NOVIANA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310045', 'NOVIANA', 'TKPT1', 'Teknik Pertambangan', 5, 1)
+
+--18. PIRMANSYAH
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310046', 'PIRMANSYAH', 'TKPT1', 'Teknik Pertambangan', 3, 1)
+
+--19. RAHMAN NUR TAUBAH
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310047', 'RAHMAN NUR TAUBAH', 'TKPT1', 'Teknik Pertambangan', 4, 1)
+
+--20. RIO ARDIANSYAH
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310048', 'RIO ARDIANSYAH', 'TKPT1', 'Teknik Pertambangan', 5, 1)
+
+--21. ROSATIA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310049', 'ROSATIA', 'TKPT1', 'Teknik Pertambangan', 4, 1)
+
+--22. SHELLA PUSPITA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310050', 'SHELLA PUSPITA', 'TKPK1', 'Teknik Perminyakan', 3, 1)
+
+--23. SISKA RAHMAWATI
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310051', 'SISKA RAHMAWATI', 'TKPK1', 'Teknik Perminyakan', 3, 1)
+
+--24. WULAN
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310052', 'WULAN', 'TKPK', 'Teknik Perminyakan', 3, 1)
+
+--25. VENI TIYAS SARI
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310053', 'VENI TIYAS SARI', 'TKPK1', 'Teknik Perminyakan',  5, 1)
+
+--26. WILDAN FEBRIANA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310054', 'WILDAN FEBRIANA', 'TKPK1', 'Teknik Perminyakan',  4, 1)
+
+--27. YAZID HADIYAN KAMALUDIN
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310055', 'YAZID HADIYAN KAMALUDIN', 'TKPK1', 'Teknik Perminyakan', 5, 1)
+
+--28. ZULIAN ZANDI NUGRAHA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310056', 'ZULIAN ZANDI NUGRAHA', 'TKPK1', 'Teknik Perminyakan', 3, 1)
+
+--29. MUHAMMAD AJAT SAPUTRA
+INSERT INTO  matakuliah(nim, nama_mhs, kdmk, nama_mk, sks, semester)
+VALUES('2021310057', 'MUHAMMAD AJAT SAPUTRA', 'TKPK', 'Teknik Perminyakan', 5, 1)
+
+
+
+/*INSERT data jurusan*/
+INSERT INTO jurusan(kode_jur, nama_jur, jenjang, nama_kajur)
+VALUES('SMBD', 'BD Sistem Manajemen', 'S1', 'RULLY')
+
+INSERT INTO jurusan(kode_jur, nama_jur, jenjang, nama_kajur)
+VALUES('AKTN', 'AKUNTANSI', 'S1', 'YUNI')
+
+INSERT INTO jurusan(kode_jur, nama_jur, jenjang, nama_kajur)
+VALUES('TKPT', 'TEKNIK PERTAMBANGAN', 'S1', 'RIDWAN')
+
+INSERT INTO jurusan(kode_jur, nama_jur, jenjang, nama_kajur)
+VALUES('TKPK', 'TEKNIK PERMINYAKAN', 'S1', 'RIZKY')
+--row 300
+
+
+/*INSERT data nilai*/
+--1. SEKAR PUSPITA ARUM
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310029', 'SMBD1', 1, '009008007', 80, 90, 89, 100)
+
+--2. AHMAD KAYIS MILKI KAFA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310030', 'SMBD1', 1, '009008007', 89, 71, 90, 90)
+
+--3. AMELIA SUKMA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310031', 'SMBD1', 1, '009008007', 70, 78, 90, 99)
+
+--4. ANDREANSYAH
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310032', 'SMBD1', 1, '009008007', 99, 91, 60, 70)
+
+--5. ARUM SAGITA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310033', 'SMBD1', 1, '009008007', 79, 78, 59, 80)
+
+--6. BENTAR ARDHIE NUUGROHO
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310034', 'SMBD1', 1, '009008007', 80, 61, 70, 98)
+
+--7. fEBRYAN MIFTAHUL HUDA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310035', 'SMBD1', 1, '009008007', 79, 81, 90, 100)
+
+--8. FUAD FANDY FAUZAN
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310036', 'AKTN1', 1, '001008009', 79, 77, 76, 92)
+
+--9. HANDAYANI
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310037', 'AKTN1', 1, '001008009', 69, 72, 70, 95)
+
+--10. KHOIRUL MUSTAQIM
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310038', 'AKTN1', 1, '001008009', 76, 72, 80, 91)
+
+--11. MARTIN RAYMON
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310039', 'AKTN1', 1, '009008007', 79, 61, 50, 90)
+
+--12. MUHAMMAD ADI PRASETYA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310040', 'AKTN1', 1, '009008007', 89, 91, 60, 98)
+
+--13. MUHAMMAD YUSUF
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310041', 'AKTN1', 1, '009008007', 79, 61, 58, 100)
+
+--14. MUHAMMAD RAFLI RAMDHONI
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310042', 'AKTN1', 1, '009008007', 89, 71, 56, 90)
+
+--15. MUHAMMAD RENDY AL SUNGKAR
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310043', 'TKPT1', 1, '009008007', 99, 61, 60, 79)
+
+--16. NESAN ARMANSYAH
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310044', 'TKPT1', 1, '009008007', 75, 78, 79, 76)
+
+--17. NOVIANA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310045', 'TKPT1', 1, '009008007', 66, 61, 60, 80)
+
+--18. PIRMANSYAH
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310046', 'TKPT1', 1, '009008007', 89, 91, 90, 90)
+
+--19. RAHMAN NUR TAUBAH
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310047', 'TKPT1', 1, '009008007', 99, 100, 99, 90)
+
+--20. RIO ARDIANSYAH
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310048', 'TKPT1', 1, '009008007', 99, 91, 80, 90)
+
+--21. ROSATIA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310049', 'TKPT1', 1, '009008007', 59, 81, 70, 90)
+
+--22. SHELLA PUSPITA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310050', 'TKPK1', 1, '009008007', 89, 61, 80, 90)
+
+--23. SISKA RAHMAWATI
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310051', 'TKPK1', 1, '009008007', 79, 81, 70, 60)
+
+--24. WULAN
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310052', 'TKPK1', 1, '009008007', 69, 81, 70, 60)
+
+--25. VENI TIYAS SARI row 400
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310053', 'TKPK1', 1, '009008007', 77, 79, 90, 90)
+
+--26. WILDAN FEBRIANA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310054', 'TKPK1', 1, '009008007', 99, 61, 90, 80)
+
+--27. YAZID HADIYAN KAMALUDIN
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310055', 'TKPK1', 1, '009008007', 89, 61, 50, 80)
+
+--28. ZULIAN ZANDI NUGRAHA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310056', 'TKPK1', 1, '009008007', 89, 61, 50, 78)
+
+--29. MUHAMMAD AJAT SAPUTRA
+INSERT INTO nilai(nim, kdmk, smt, nid, nilai_absen, nilai_tugas, nilai_uts, nilai_uas)
+VALUES('2021310057', 'TKPK1', 1, '009008007', 79, 71, 60, 98)
+
+
+
+
+/*INSERT data dosen*/
+INSERT INTO dosen(nid, nama_d, pendidikan_d, agama_d, kota_d, telepon_d)
+VALUES('009008007', 'RULLY', 'S2', 'ISLAM', 'BEKASI', '021378908890')
+
+INSERT INTO dosen(nid, nama_d, pendidikan_d, agama_d, kota_d, telepon_d)
+VALUES('002003004', 'YUNI', 'S2', 'KATHOLIK', 'BOGOR', '02167893245')
+
+INSERT INTO dosen(nid, nama_d, pendidikan_d, agama_d, kota_d, telepon_d)
+VALUES('001008009', 'RIDWAN', 'S2', 'ISLAM', 'BANTEN', '02567891992')
+
+INSERT INTO dosen(nid, nama_d, pendidikan_d, agama_d, kota_d, telepon_d)
+VALUES('005006007', 'RIZKY', 'S2', 'ISLAM', 'BEKASI', '078678908881')
+
+/*SHOWING DATA*/
+SELECT * FROM mahasiswa
+SELECT * FROM matakuliah
+SELECT * FROM jurusan
+SELECT * FROM nilai
+SELECT * FROM dosen
+
+/*buatlah Buat 5 soal dan jawaban query dari operator aritmatika*/
+/*1. kalikanlah nilai absen dengan 50%!*/
+/*2. kalikanlah nilai tugas dengan 30%!*/
+/*3. kalikanlah nilai uts dengan 10%!*/
+/*4. kalikanlah nilai uas dengan 10%!*/
+/*5. jumlahkanlah nilai absen, nilai tugas, uts dan uas!*/
+
+/*jawaban 1*/
+SELECT nid, nama_mhs,(nilai_absen*0.5) from nilai;
+
+/*jawaban 2*/
+SELECT nid, nama_mhs,(nilai_tugas*0.3) from nilai;
+
+/*jawaban 3*/
+SELECT nid, nama_mhs,(nilai_uts*0.1) from nilai;
+
+/*jawaban 4*/
+SELECT nid, nama_mhs,(nilai_uas*0.1) from nilai;
+
+/*jawaban 5*/
+SELECT nid, nama_mhs,(nilai_absen*0.5)+(nilai_tugas*0.3)+(nilai_uts*0.1)+(nilai_uas*0.1) from nilai;
+
+/*Buat 5 soal dan jawaban query dari operator comparison*/
+/*1. carilah nilai absen mahasiswa yang lebih dari 79!*/
+/*2. carilah nilai tugas mahasiswa yang kurang dari 60!*/
+/*3. carilah nilai uts mahasiswa yang lebih dari 80!*/
+/*4. carilah nilai uas mahasiswa yang kurang dari 78!*/
+/*5. carilah nilai absen mahasiswa yang kurang dari 70!*/
+
+/*jawaban 1*/
+SELECT nid,  nama_mhs, nilai_absen FROM nilai WHERE nilai_absen>79;
+
+/*jawaban 2*/
+SELECT nid,  nama_mhs, nilai_tugas FROM nilai WHERE nilai_tugas<60;
+
+/*jawaban 3*/
+SELECT nid,  nama_mhs, nilai_uts FROM nilai WHERE nilai_uts>80;
+
+/*jawaban 4*/
+SELECT nid,  nama_mhs, nilai_uas FROM nilai WHERE nilai_uas<78;
+
+/*jawaban 5*/
+SELECT nid,  nama_mhs, nilai_absen FROM nilai WHERE nilai_absen<70;
+
+-----------------------------------------------------------------------------------
+--|			--TUGAS 13 LANJUTAN TUGAS 12				|--
+-----------------------------------------------------------------------------------
+/*			SEKAR PUSPITA ARUM 2021310029				*/
+-----------------------------------------------------------------------------------
+		--CONTOH Range operator : seperti Between dan Not Beetween
+-----------------------------------------------------------------------------------
+--SELECT nim,nama_m'Nama Mahasiswa',tgl_lhr_m 'Tanggal Lahir' FROM Mahasiswa WHERE tgl_lhr_m BETWEEN '11/17/1977' and '10/19/1980'
+--SELECT Kdmk 'Kode Matakuliah',nama_mk 'Matakuliah',sks FROM Matakuliah WHERE sks Not BETWEEN 1 and 2	ROW 500			
+-----------------------------------------------------------------------------------  
+--1. Tampilkan Nilai UAS di mana nilai UAS diantara nilai 90 sampai 100!!!
+SELECT nim,nama_mhs 'Nama Mahasiswa', nilai_uas 'Nilai UAS' FROM nilai WHERE nilai_uas BETWEEN 90 and 100;
+
+--2. Tampikan Nilai UTS di mana nilai UTS diantara nilai 50 sampai 60!!! --row 500
+SELECT nim,nama_mhs 'Nama Mahasiswa', nilai_uts 'Nilai UTS' FROM nilai WHERE nilai_uts BETWEEN 50 and 60;
+
+--3. Tampilkan tanggal lahir mahasiswa diantara tanggal 01 Oktober sampai 30 Oktober tahun 2001
+SELECT nim,nama_mhs 'Nama Mahasiswa', tgl_lhr_mhs 'Tanggal Lahir Mahasiswa' FROM mahasiswa WHERE tgl_lhr_mhs BETWEEN '10/1/2001' and '10/30/2001';
+
+--4. Tampilkan Nilai Absen di mana nilai Absen diantara nilai 80 sampai 100!!!
+SELECT nim,nama_mhs 'Nama Mahasiswa', nilai_absen 'Nilai Absen' FROM nilai WHERE nilai_absen BETWEEN 80 and 100;
+
+--5. Tampilkan sks mahasiswa, dimana sks tidak bole diantara 5 dan 6!!!
+SELECT kdmk 'Kode Mata Kuliah', nama_mk 'Nama Matakuliah', sks FROM matakuliah WHERE sks Not BETWEEN 3 and 4;
+
+-----------------------------------------------------------------------------------
+		--CONTOH List operator : seperti In dan Not In
+-----------------------------------------------------------------------------------
+--SELECT nim,nama_m 'Nama Mahasiswa‘,tpt_lhr_m 'Tempat Lahir‘,telpon_m 'Telepon' FROM Mahasiswa WHERE tpt_lhr_m IN ('Bogor','Surabaya','Solo')
+--SELECT nama_m 'Nama Mahasiswa',nama_jur 'Jurusan',jenjang FROM Mahasiswa INNER JOIN Jurusan ON  Mahasiswa. kode_jur=Jurusan.kode_jur WHERE nama_jur IN ('Sistem Informasi', 'Teknik Informatika')
+--SELECT nim,nama_m 'Nama Mahasiswa', tpt_lhr_m 'Tempat Lahir', telpon_m 'Telepon‘ FROM Mahasiswa WHERE tpt_lhr_m NOT IN ('Bekasi','Bogor','Jakarta')
+-----------------------------------------------------------------------------------
+--1. Tampilkan tempat lahir mahasiswa yang lahir di Jawa, Bali dan Solo!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa', tpt_lhr_mhs 'Tempat Lahir Mahasiswa', telpon_mhs 'Telepon Mahasiswa' FROM mahasiswa WHERE tpt_lhr_mhs IN ('Jawa', 'Bali', 'Solo');
+
+--2. Tampilkan tempat lahir mahasiswa yanng tidak lahir di Jawa, Bali dan Solo!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa', tpt_lhr_mhs 'Tempat Lahir Mahasiswa', telpon_mhs 'Telepon Mahasiswa' FROM mahasiswa WHERE tpt_lhr_mhs NOT IN ('Jawa', 'Bali', 'Solo');
+
+--3. Tampilkan jurusan mahasiswa yang jurusannya Akuntansi, Teknik Perminyakan, Teknik Pertambangan!!!
+--SELECT nim, nama_mhs 'Nama Mahasiswa', nama_jur'Nama Jurusan', kode_jur 'Kode Jurusan' FROM mahasiswa INNER JOIN jurusan ON mahasiswa. kode_jur=jurusan.kode_jur Where nama_jur IN ('Akuntansi', 'Teknik Pertambangan', 'Teknik Perminyakan');
+
+--4. Tampilkan tempat lahir mahasiswa yang lahir di Jakarta, Riau dan Banten!!!
+SELECT nim, nama_mhs 'Nama Mahasiwa', tpt_lhr_mhs 'Tempat Lahir Mahasiswa', telpon_mhs 'Telepon Mahasiswa' FROM mahasiswa WHERE tpt_lhr_mhs IN ('Jakarta', 'Riau', 'Banten');
+
+--5. Tampilkan tempat lahir mahasiswa yang lahir bukan di Jakarta, Riau dan Banten!!!
+SELECT nim, nama_mhs 'Nama Mahasiwa', tpt_lhr_mhs 'Tempat Lahir Mahasiswa', telpon_mhs 'Telepon Mahasiswa' FROM mahasiswa WHERE tpt_lhr_mhs NOT IN ('Jakarta', 'Riau', 'Banten');
+
+-----------------------------------------------------------------------------------
+		--CONTOH String operator : seperti Like dan Not Like
+-----------------------------------------------------------------------------------
+--SELECT nim,nama_m 'Nama Mahasiswa' FROM Mahasiswa WHERE nama_m LIKE 'De%'
+--SELECT nim,nama_m 'Nama Mahasiswa' FROM Mahasiswa WHERE nama_m LIKE '%An'
+--SELECT nim,nama_m 'Nama Mahasiswa' FROM Mahasiswa WHERE nama_m LIKE '%An%'
+--SELECT nim,nama_m 'Nama Mahasiswa' FROM Mahasiswa WHERE nama_m LIKE '___a%'
+--SELECT nim,nama_m 'Nama Mahasiswa' FROM Mahasiswa WHERE nama_m LIKE '%i__'
+
+-----------------------------------------------------------------------------------
+--1. Tampilkanlah nama mahasiswa yang huruf pertamanya adalah Mu!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa' FROM mahasiswa WHERE nama_mhs LIKE 'Mu%';
+
+--2. Tampilkanlah nama mahasiswa yang huruf terakhirnya adalah yan!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa' FROM mahasiswa WHERE nama_mhs LIKE '%Yan';
+
+--3. Tampilkanlah nama mahasiswa yang mengandung huruf Su!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa' FROM mahasiswa WHERE nama_mhs LIKE '%Su%';
+
+--4. Tampilkanlah nama mahasiswa yang setelah 3 huruf pertama mengandung huruf O!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa' FROM mahasiswa WHERE nama_mhs LIKE '___o%';
+
+--5. Tampilkanlah nama mahasiswa yang sebeluh 2 huruf terakhir mengandung huruf e!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa' FROM mahasiswa WHERE nama_mhs Like '%e___';
+
+-----------------------------------------------------------------------------------
+		--CONTOH Logical Operator : seperti And, Or, Not. 
+-----------------------------------------------------------------------------------
+
+--SELECT nim,nama_m'Nama Mahasiswa‘ ,tpt_lhr_m 'Tempat Lahir‘ ,alm_m 'Alamat',kota_m 'Kota' FROM Mahasiswa WHERE tpt_lhr_m='Bekasi‘ OR kota_m='Cikarang'
+--SELECT nama_m 'Nama Mahasiswa',j_kelamin 'Jenis Kelamin',nama_jur 'Jurusan',jenjang FROM Mahasiswa INNER JOIN Jurusan ON  Mahasiswa.kode_jur=Jurusan.kode_jur WHERE j_kelamin='Wanita' OR nama_jur='Teknik Informatika'
+--SELECT nim,nama_m 'Nama Mahasiswa‘ ,tpt_lhr_m 'Tempat Lahir‘ ,j_kelamin 'Jenis Kelamin' FROM Mahasiswa WHERE tpt_lhr_m='Bekasi' AND j_kelamin='Wanita'
+--SELECT nim,nama_m 'Nama Mahasiswa‘ ,tpt_lhr_m 'Tempat Lahir‘,alm_m 'Alamat',kota_m 'Kota' FROM Mahasiswa WHERE tpt_lhr_m NOT in ('Bekasi','Cikarang‘,'Jakarta','Bogor')
+--SELECT nama_m 'Nama Mahasiswa', nama_jur 'Jurusan',jenjang FROM nama_m 'Nama Mahasiswa', nama_jur 'Jurusan',jenjang WHERE Mahasiswa INNER JOIN Jurusan ON Mahasiswa.kode_jur=Jurusan.kode_jur WHERE nama_jur NOT in('Teknik Informatika','Teknik Komputer')
+
+-----------------------------------------------------------------------------------
+--1. Tampilkan nama mahasiswa yang tempat lahirnya di Bogor atau kotanya di Jakarta!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa', tpt_lhr_mhs 'Tempat Lahir Mahasiswa', kota_mhs 'Kota Mahasiswa' FROM mahasiswa WHERE tpt_lhr_mhs='Bogor' OR kota_mhs='Jakarta';
+
+--2. Tampilkan nama mahasiswa yang berjenis kelamin laki-laki atau berjurusan administrasi!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa', j_kelamin 'Jenis Kelamin Mahasiswa', nama_jur 'Nama Jurusan' FROM mahasiswa INNER JOIN jurusan on mahasiswa.kode_jur=jurusan.kode_jur WHERE j_kelamin='Laki-laki' OR nama_jur='Administrasi';
+
+--3. Tampilkan nilai UAS dan nilai UTS dimana nilai UAS adalah 90 dan nilai UTS=70!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa', nilai_uas 'Nilai UAS', nilai_uts 'Nilai UTS' FROM nilai WHERE nilai_uas=90 AND nilai_uts=70;
+
+--4. Tampilkan nama mahasiswa yang memiliki nilai absen 88 dan nilai uas 89!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa', nilai_absen 'Nilai Absesn', nilai_uas 'Nilai UAS' FROM nilai WHERE nilai_absen=88 AND nilai_uas=89;
+
+--5. Tampilkan nama mahasiswa yang tempat lahirnya bukan dari Bandung, Sukabumi, maupun Cianjur!!!
+SELECT nim, nama_mhs 'Nama Mahasiswa', tpt_lhr_mhs 'Tempat Lahir Mahasiswa', kota_mhs 'Kota Mahasiswa' FROM mahasiswa WHERE tpt_lhr_mhs NOT in ('Bandung', 'Sukabumi', 'Cianjur');
+
