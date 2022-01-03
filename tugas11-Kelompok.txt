@@ -1,0 +1,65 @@
+/*uery database kelompok 13 caffee*/
+CREATE DATABASE caffe_13
+
+/*query table kelompok 13 caffee*/
+create table pembayaran_pelanggan 
+(
+status_pembayaran varchar (15),
+jumlah_pembayaran varchar (30),
+id_pembayaran varchar (10) primary key not null,
+tipe_pembayaran varchar (10)
+);
+
+create table kasir 
+(
+nama_kasir varchar (20),
+id_karyawan varchar (10) primary key not null,
+alamat varchar (20),
+no_hp varchar (15)
+);
+
+create table pelayan 
+(
+alamat varchar (20),
+nama_pelayan varchar (20),
+no_hp varchar (15),
+id_karyawan varchar (10) primary key not null,
+);
+
+create table barista 
+(
+nama_barista varchar (20),
+id_karyawan varchar (10) primary key not null,
+alamat varchar (20),
+no_hp varchar (15)
+);
+
+create table crew
+(
+nama_crew varchar (20),
+id_karyawan varchar (10) primary key not null,
+alamt varchar (20),
+no_hp varchar (15)
+);
+
+create table pelanggan
+(
+nama_pelanggan varchar (20),
+alamat varchar (20),
+id_pelanggan varchar (10) primary key not null,
+no_hp varchar (15)
+);
+
+create table makanan
+(
+nama_makanan varchar (20),
+id_makanan varchar (10) primary key not null,
+harga_makanan varchar (15)
+);
+
+create table minuman
+(
+nama_minuman varchar (20),
+id_minuman varchar (10) primary key not null,
+harga_minuman varchar (15)
+);
